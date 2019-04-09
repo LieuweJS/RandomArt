@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<body>
+<canvas id="myCanvas" width="700" height="500" style="border:0px solid #000000;"> </canvas>
+<script>
+//ik weet niet wtf ik gedaan heb maar dit is superchill
+var x = 0
+var height = 0
+var totWidth = 600
+var y = 0
+var c = document.getElementById("myCanvas")
+var ctx = c.getContext("2d")
+function get_random_color_black() {
+    var l = 0
+    var s = 0
+    var h = Math.floor(Math.random() * 120) + 1
+    return 'hsl(' + h + ',' + s + '%,' + l + '%)';
+}
+function get_random_color_gray() {
+    var h = Math.floor(Math.random() * 120) + 120
+    var s = 50
+    var l = 50
+    return 'hsl(' + h + ',' + s + '%,' + l + '%)';
+}
+function get_random_color_white() {
+    var l = 0
+    var s = 0
+    var h = Math.floor(Math.random() * 120) + 240
+    return 'hsl(' + h + ',' + s + '%,' + l + '%)';
+}
+for (height = 0; height < 500; height++) {
+  while (totWidth >= 0) {
+    var randWidth = Math.floor(Math.random() * 8) + 1
+    if (totWidth <300 && totWidth >200) {
+    ctx.beginPath()
+    ctx.rect(x, y, randWidth, 1)
+    ctx.fillStyle = get_random_color_white()
+    ctx.fill()
+    x = x + randWidth
+    totWidth = totWidth - randWidth  
+  } else {
+      if (totWidth >500 || totWidth <100) {
+        ctx.beginPath()
+        ctx.rect(x, y, 1, 1)
+        ctx.fillStyle = get_random_color_black()
+        ctx.fill()
+        x = x + randWidth
+        totWidth = totWidth - 1
+       } else {
+         ctx.beginPath()
+         ctx.rect(x, y, randWidth, 1)
+         ctx.fillStyle = get_random_color_gray()
+         ctx.fill()
+         x = x + 1
+         totWidth = totWidth - randWidth
+       }
+    }
+  }
+  y = y + 1
+  x = 0
+  totWidth = 600
+}
+</script>
+</body>
+</html>

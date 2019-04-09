@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<body>
+<canvas id="myCanvas" width="1920" height="1080" style="border:0px solid #000000;"> </canvas>
+
+<script>
+var c = document.getElementById("myCanvas")
+var ctx = c.getContext("2d")
+var x = 0
+var y = 500
+var totWidth = 500
+    for (height = 0; height < 500; height++) {
+    while (totWidth >= 0) {
+    var result = ['white', 'black'][Math.floor(Math.random() * 2)]
+    ctx.beginPath()
+    ctx.rect(x, y, 2, 2)
+    ctx.fillStyle = result
+    ctx.fill()
+    x = x + 2
+    totWidth = totWidth - 2
+  }
+  y = y + 2
+  x = 0
+  totWidth = 500
+}
+</script> 
+</body>
+</html>
